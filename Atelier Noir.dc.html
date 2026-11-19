@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/classical-1f709b04-89c5-4ea9-83a4-ae1520ef9e3b/styles.css">
+<script src="_ds/classical-1f709b04-89c5-4ea9-83a4-ae1520ef9e3b/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600&display=swap">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-bg);color:var(--color-text);font-family:"Lora","Noto Serif KR",serif;word-break:keep-all}
+h1,h2,h3,h4{font-family:"Cormorant Garamond","Noto Serif KR",serif;margin:0}
+a{color:var(--color-accent-700);text-decoration:none}
+a:hover{color:var(--color-accent-600)}
+:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px}
+.btn,.seg-opt{font-family:"Lora","Noto Serif KR",serif;white-space:nowrap}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:var(--color-bg)">
+
+<header style="position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--color-bg) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--color-divider)">
+  <div style="max-width:1200px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <a href="#top" style="display:flex;flex-direction:column;gap:2px;color:var(--color-text)">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:24px;letter-spacing:0.14em;line-height:1">ATELIER NOIR</span>
+      <span style="font-size:9px;letter-spacing:0.28em;color:var(--color-neutral-700)">COFFEE · DESSERT · ARCHITECTURE</span>
+    </a>
+    <nav style="display:flex;align-items:center;gap:26px;flex-wrap:wrap;font-size:14px">
+      <a href="#story" style="color:var(--color-text)">스토리</a>
+      <a href="#space" style="color:var(--color-text)">공간</a>
+      <a href="#menu" style="color:var(--color-text)">메뉴</a>
+      <a href="#taste" style="color:var(--color-text)">테이스트 카드</a>
+      <a href="#goods" style="color:var(--color-text)">굿즈</a>
+      <a href="#visit" style="color:var(--color-text)">오시는 길</a>
+      <button class="btn btn-primary" onClick="{{ openCart }}" style="gap:8px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        <span>장바구니 {{ cartCount }}</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<section data-screen-label="Promo Reel" style="background:#1d1b19;border-bottom:1px solid var(--color-divider)">
+  <div style="max-width:1280px;margin:0 auto;padding:32px 28px">
+    <div style="position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#1d1b19">
+      <iframe src="Promo%20Reel.dc.html" title="아틀리에 누아르 홍보 영상" style="position:absolute;top:0;left:0;width:100%;height:calc(100% + 44px);border:0;display:block"></iframe>
+    </div>
+  </div>
+</section>
+
+<section id="top" data-screen-label="Hero" style="max-width:1200px;margin:0 auto;padding:72px 28px 88px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:56px;align-items:center">
+  <div style="display:flex;flex-direction:column;gap:28px">
+    <span style="font-size:11px;letter-spacing:0.3em;color:var(--color-accent-700)">EST. 2026 · SEOUL</span>
+    <h1 style="font-size:clamp(44px,6vw,76px);font-weight:400;line-height:1.08;letter-spacing:-0.01em">취향을 공간으로,<br><em style="font-style:italic;color:var(--color-accent-700)">순간을 작품으로.</em></h1>
+    <p style="margin:0;font-size:16px;line-height:1.85;max-width:460px;text-align:justify;color:var(--color-neutral-800)">자연광이 스며드는 아치형 구조와 자연 소재로 이루어진 공간. 아틀리에 누아르는 커피와 디저트가 더 특별하게 느껴지는, 하나의 작품 같은 카페입니다.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a class="btn btn-primary" href="#menu" style="padding:12px 22px">메뉴 보기</a>
+      <a class="btn btn-secondary" href="#taste" style="padding:12px 22px;color:var(--color-text)">나의 취향 찾기</a>
+    </div>
+  </div>
+  <figure style="margin:0">
+    <img class="plate" src="assets/interior.png" alt="아틀리에 누아르 내부 — 아치형 복도와 커피 바" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block">
+    <figcaption style="margin-top:12px;font-size:12px;font-style:italic;color:var(--color-neutral-700)">Plate I. 자연광이 머무는 아치 복도와 커피 바</figcaption>
+  </figure>
+</section>
+
+<hr class="hr" style="max-width:1144px;margin:0 auto">
+
+<section id="story" data-screen-label="Story" style="max-width:1200px;margin:0 auto;padding:96px 28px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:56px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-size:11px;letter-spacing:0.3em;color:var(--color-accent-700)">I. OUR STORY</span>
+      <h2 style="font-size:clamp(34px,4vw,48px);font-weight:400;line-height:1.15">한 잔의 커피가<br>작품이 되기까지</h2>
+    </div>
+    <p style="margin:0;font-size:15px;line-height:1.9;text-align:justify;color:var(--color-neutral-800)">아틀리에(Atelier)는 작가의 작업실, 누아르(Noir)는 깊은 어둠을 뜻합니다. 우리는 커피가 가진 가장 깊은 맛과 디저트의 섬세한 결을, 건축가가 공간을 짓듯 한 겹씩 설계합니다. 콘크리트와 돌, 나무와 회벽 — 꾸미지 않은 소재 위로 하루의 빛이 천천히 지나갑니다.</p>
+    <p style="margin:0;font-size:15px;line-height:1.9;text-align:justify;color:var(--color-neutral-800)">이곳에서는 메뉴를 고르는 대신 당신의 취향을 이야기합니다. 테이스트 카드에 오늘의 기분과 입맛을 적으면, 바리스타와 파티시에가 그에 어울리는 한 잔과 한 조각을 페어링해 드립니다. 방문할 때마다 쌓이는 취향의 기록, 그것이 아틀리에 누아르의 이야기입니다.</p>
+  </div>
+  <div style="margin-top:72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));border-top:1px solid var(--color-divider)">
+    <div style="padding:28px 24px 0 0;display:flex;flex-direction:column;gap:8px">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--color-accent);font-feature-settings:'tnum'">01</span>
+      <h3 style="font-size:20px">Coffee</h3>
+      <p style="margin:0;font-size:13px;line-height:1.75;color:var(--color-neutral-700)">산지와 로스팅을 직접 고른 시그니처 블렌드</p>
+    </div>
+    <div style="padding:28px 24px 0;border-left:1px solid var(--color-divider);display:flex;flex-direction:column;gap:8px">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--color-accent);font-feature-settings:'tnum'">02</span>
+      <h3 style="font-size:20px">Dessert</h3>
+      <p style="margin:0;font-size:13px;line-height:1.75;color:var(--color-neutral-700)">매일 아침 매장에서 굽는 바스크 치즈케이크와 구움과자</p>
+    </div>
+    <div style="padding:28px 0 0 24px;border-left:1px solid var(--color-divider);display:flex;flex-direction:column;gap:8px">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--color-accent);font-feature-settings:'tnum'">03</span>
+      <h3 style="font-size:20px">Architecture</h3>
+      <p style="margin:0;font-size:13px;line-height:1.75;color:var(--color-neutral-700)">아치와 중정, 자연광으로 설계한 머무는 공간</p>
+    </div>
+  </div>
+</section>
+
+<section id="space" data-screen-label="Space" style="border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);background:var(--color-surface)">
+  <div style="max-width:1200px;margin:0 auto;padding:96px 28px;display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:11px;letter-spacing:0.3em;color:var(--color-accent-700)">II. SPACE CONCEPT</span>
+        <h2 style="font-size:clamp(34px,4vw,48px);font-weight:400;line-height:1.15">빛과 아치, 자연 소재</h2>
+      </div>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--color-neutral-800)">
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:12px;border-radius:50%;background:#3a3633"></span>Noir Charcoal</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:12px;border-radius:50%;background:#d8cfc2"></span>Sand Beige</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:12px;border-radius:50%;background:#a0583a"></span>Burnt Terracotta</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:12px;border-radius:50%;background:#8a8a6e"></span>Muted Olive</span>
+      </div>
+    </div>
+    <figure style="margin:0">
+      <img class="plate" src="assets/space-board.png" alt="아틀리에 누아르 1층 평면도와 공간 콘셉트 보드" style="width:100%;display:block">
+      <figcaption style="margin-top:12px;font-size:12px;font-style:italic;color:var(--color-neutral-700)">Plate II. 1층 평면 — 입구, 커피 바, 메인 좌석, 중정, 프라이빗 룸</figcaption>
+    </figure>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px">
+      <div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--color-accent);padding-top:14px"><h3 style="font-size:19px">아치형 구조</h3><p style="margin:0;font-size:13px;line-height:1.7;color:var(--color-neutral-700)">반복되는 아치가 시선을 중정까지 이끕니다.</p></div>
+      <div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--color-accent);padding-top:14px"><h3 style="font-size:19px">바 &amp; 오픈 키친</h3><p style="margin:0;font-size:13px;line-height:1.7;color:var(--color-neutral-700)">추출과 굽는 과정을 가까이서 지켜보세요.</p></div>
+      <div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--color-accent);padding-top:14px"><h3 style="font-size:19px">자연광과 그림자</h3><p style="margin:0;font-size:13px;line-height:1.7;color:var(--color-neutral-700)">시간마다 달라지는 빛이 공간을 다시 그립니다.</p></div>
+      <div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--color-accent);padding-top:14px"><h3 style="font-size:19px">중정 &amp; 플랜트</h3><p style="margin:0;font-size:13px;line-height:1.7;color:var(--color-neutral-700)">올리브 나무 아래, 도심 속 작은 정원.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" data-screen-label="Menu" style="max-width:1200px;margin:0 auto;padding:96px 28px;display:flex;flex-direction:column;gap:48px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-size:11px;letter-spacing:0.3em;color:var(--color-accent-700)">III. MENU</span>
+      <h2 style="font-size:clamp(34px,4vw,48px);font-weight:400;line-height:1.15">메뉴 안내</h2>
+    </div>
+    <div class="seg" role="tablist">
+      <sc-for list="{{ cats }}" as="c" hint-placeholder-count="4">
+        <button class="seg-opt" onClick="{{ c.select }}" style="border:0;font:inherit;font-size:13px;cursor:pointer;background:{{ c.bg }};color:{{ c.color }}">{{ c.label }}</button>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:32px">
+    <sc-for list="{{ signatures }}" as="s" hint-placeholder-count="3">
+      <article style="display:flex;flex-direction:column;gap:14px">
+        <img class="plate" src="{{ s.img }}" alt="{{ s.name }}" style="width:100%;aspect-ratio:455/535;object-fit:cover;display:block">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <span style="font-size:10px;letter-spacing:0.2em;color:var(--color-accent-700)">SIGNATURE</span>
+            <h3 style="font-size:22px">{{ s.name }}</h3>
+          </div>
+          <span style="font-size:15px;font-feature-settings:'tnum'">{{ s.priceText }}</span>
+        </div>
+        <p style="margin:0;font-size:13px;line-height:1.75;color:var(--color-neutral-700);text-align:justify">{{ s.desc }}</p>
+      </article>
+    </sc-for>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));column-gap:64px;border-top:1px solid var(--color-divider)">
+    <sc-for list="{{ menuList }}" as="m" hint-placeholder-count="8">
+      <div style="display:flex;flex-direction:column;gap:4px;padding:18px 0;border-bottom:1px solid var(--color-divider)">
+        <div style="display:flex;align-items:baseline;gap:12px">
+          <h4 style="font-size:19px;font-weight:500">{{ m.name }}</h4>
+          <span style="font-size:11px;color:var(--color-neutral-600);font-style:italic">{{ m.en }}</span>
+          <span style="flex:1;border-bottom:1px dotted var(--color-neutral-400);transform:translateY(-4px)"></span>
+          <span style="font-size:14px;font-feature-settings:'tnum'">{{ m.priceText }}</span>
+        </div>
+        <p style="margin:0;font-size:12.5px;line-height:1.65;color:var(--color-neutral-700)">{{ m.desc }}</p>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="taste" data-screen-label="Taste Card" style="background:#1d1b19;color:#eae5dd">
+  <div style="max-width:1200px;margin:0 auto;padding:96px 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:56px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:11px;letter-spacing:0.3em;color:var(--color-accent-400)">IV. MY TASTE PAIRING</span>
+        <h2 style="font-size:clamp(34px,4vw,48px);font-weight:400;line-height:1.15;color:#f3efe8">당신의 취향을<br>한 잔의 작품으로.</h2>
+        <p style="margin:0;font-size:14px;line-height:1.85;color:#c9c2b8;max-width:440px">매장에서 작성하는 테이스트 카드를 미리 체험해 보세요. 취향을 고르면 어울리는 페어링을 추천해 드립니다.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px;font-size:12px;color:#c9c2b8">
+        <div style="border-top:1px solid var(--color-accent);padding-top:10px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--color-accent-400)">01</span>취향 선택</div>
+        <div style="border-top:1px solid var(--color-accent);padding-top:10px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--color-accent-400)">02</span>바리스타의 분석</div>
+        <div style="border-top:1px solid var(--color-accent);padding-top:10px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--color-accent-400)">03</span>나만의 페어링</div>
+      </div>
+      <img class="plate" src="assets/taste-pairing.png" alt="테이스트 카드 작성부터 페어링까지의 과정" style="width:100%;display:block;border-color:#2c2925;outline-color:#3a3631">
+    </div>
+
+    <div style="border:1px solid #4a443d;padding:36px;display:flex;flex-direction:column;gap:28px;background:#f1ece4;color:var(--color-text)">
+      <div style="text-align:center;display:flex;flex-direction:column;gap:4px;border-bottom:1px solid var(--color-divider);padding-bottom:18px">
+        <span style="font-size:10px;letter-spacing:0.3em;color:var(--color-neutral-700)">ATELIER NOIR</span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:30px;letter-spacing:0.12em">TASTE CARD</span>
+        <span style="font-size:11px;font-style:italic;color:var(--color-neutral-700)">Your taste, your story</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.2em;color:var(--color-accent-700)">COFFEE PREFERENCE</span>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <sc-for list="{{ coffeeOpts }}" as="o" hint-placeholder-count="4">
+            <button onClick="{{ o.pick }}" style="font:inherit;font-size:13px;text-align:left;padding:11px 14px;cursor:pointer;border-radius:var(--radius-md);border:1px solid {{ o.border }};background:{{ o.bg }};color:var(--color-text);display:flex;align-items:center;gap:10px">
+              <span style="width:12px;height:12px;border:1px solid var(--color-neutral-600);display:flex;align-items:center;justify-content:center;font-size:10px;line-height:1">{{ o.mark }}</span>{{ o.label }}
+            </button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.2em;color:var(--color-accent-700)">DESSERT PREFERENCE</span>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <sc-for list="{{ dessertOpts }}" as="o" hint-placeholder-count="4">
+            <button onClick="{{ o.pick }}" style="font:inherit;font-size:13px;text-align:left;padding:11px 14px;cursor:pointer;border-radius:var(--radius-md);border:1px solid {{ o.border }};background:{{ o.bg }};color:var(--color-text);display:flex;align-items:center;gap:10px">
+              <span style="width:12px;height:12px;border:1px solid var(--color-neutral-600);display:flex;align-items:center;justify-content:center;font-size:10px;line-height:1">{{ o.mark }}</span>{{ o.label }}
+            </button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--color-divider);padding-top:20px;display:flex;flex-direction:column;gap:10px;min-height:110px">
+        <span style="font-size:11px;letter-spacing:0.2em;color:var(--color-accent-700)">RECOMMENDED PAIRING</span>
+        <sc-if value="{{ hasPairing }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <span style="font-family:'Cormorant Garamond','Noto Serif KR',serif;font-size:24px">{{ pairDrink }} <span style="color:var(--color-accent)">×</span> {{ pairDessert }}</span>
+            <p style="margin:0;font-size:13px;line-height:1.7;color:var(--color-neutral-700)">{{ pairNote }}</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ noPairing }}" hint-placeholder-val="{{ true }}">
+          <p style="margin:0;font-size:13px;font-style:italic;color:var(--color-neutral-600)">커피와 디저트 취향을 하나씩 골라 주세요.</p>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="goods" data-screen-label="Goods" style="max-width:1200px;margin:0 auto;padding:96px 28px;display:flex;flex-direction:column;gap:48px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:56px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <span style="font-size:11px;letter-spacing:0.3em;color:var(--color-accent-700)">V. GOODS</span>
+      <h2 style="font-size:clamp(34px,4vw,48px);font-weight:400;line-height:1.15">공간의 결을<br>집으로 가져가세요</h2>
+      <p style="margin:0;font-size:15px;line-height:1.9;text-align:justify;color:var(--color-neutral-800);max-width:460px">아틀리에 누아르의 원두와 오브제. 매장의 소재와 색을 그대로 담아 만들었습니다. 주문하신 굿즈는 매장 픽업 또는 택배로 받아보실 수 있습니다.</p>
+    </div>
+    <img class="plate" src="assets/goods.png" alt="아틀리에 누아르 쇼핑백과 테이크아웃 컵, 시그니처 메뉴" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 40%;display:block">
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:28px">
+    <sc-for list="{{ goods }}" as="g" hint-placeholder-count="6">
+      <article class="card" style="padding:14px;gap:12px">
+        <div style="width:100%;aspect-ratio:1/1;position:relative">
+          <image-slot id="{{ g.slot }}" shape="rect" placeholder="{{ g.ph }}"></image-slot>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <span class="card-kicker" style="color:var(--color-accent-700)">{{ g.kind }}</span>
+          <h3 class="card-title" style="font-size:20px;font-family:'Cormorant Garamond','Noto Serif KR',serif">{{ g.name }}</h3>
+          <p class="card-body" style="line-height:1.6">{{ g.desc }}</p>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--color-divider);padding-top:12px">
+          <span style="font-size:15px;font-feature-settings:'tnum'">{{ g.priceText }}</span>
+          <button class="btn btn-primary" onClick="{{ g.add }}" style="font-size:13px">{{ g.btnLabel }}</button>
+        </div>
+      </article>
+    </sc-for>
+  </div>
+</section>
+
+<section id="visit" data-screen-label="Visit" style="border-top:1px solid var(--color-divider)">
+  <div style="max-width:1200px;margin:0 auto;padding:80px 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:40px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-size:11px;letter-spacing:0.3em;color:var(--color-accent-700)">VI. VISIT</span>
+      <h2 style="font-size:36px;font-weight:400">오시는 길</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.8">
+      <span style="font-size:11px;letter-spacing:0.2em;color:var(--color-neutral-700)">ADDRESS</span>
+      <span>서울특별시 ○○구 ○○로 00</span>
+      <span style="color:var(--color-neutral-700)">1F, Atelier Noir</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.8;font-feature-settings:'tnum'">
+      <span style="font-size:11px;letter-spacing:0.2em;color:var(--color-neutral-700)">HOURS</span>
+      <span>매일 10:00 — 21:00</span>
+      <span style="color:var(--color-neutral-700)">라스트 오더 20:30</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.8">
+      <span style="font-size:11px;letter-spacing:0.2em;color:var(--color-neutral-700)">CONTACT</span>
+      <span>@atelier.noir</span>
+      <span style="color:var(--color-neutral-700)">프라이빗 룸 예약 문의</span>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--color-divider)">
+    <div style="max-width:1200px;margin:0 auto;padding:22px 28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:11px;letter-spacing:0.14em;color:var(--color-neutral-700)">
+      <span>ATELIER NOIR — COFFEE · DESSERT · ARCHITECTURE</span>
+      <span>© 2026 Atelier Noir</span>
+    </div>
+  </div>
+</section>
+
+<sc-if value="{{ cartOpen }}" hint-placeholder-val="{{ false }}">
+  <div class="dialog-backdrop" onClick="{{ closeCart }}" style="position:fixed;inset:0;z-index:50;background:color-mix(in srgb,var(--color-text) 35%,transparent)"></div>
+  <aside style="position:fixed;top:0;right:0;bottom:0;z-index:51;width:min(400px,100%);background:var(--color-bg);border-left:1px solid var(--color-divider);box-shadow:var(--shadow-lg);display:flex;flex-direction:column">
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid var(--color-divider)">
+      <h3 style="font-size:24px;font-weight:500">장바구니</h3>
+      <button class="btn btn-ghost btn-icon" onClick="{{ closeCart }}" aria-label="닫기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+    </div>
+    <div style="flex:1;overflow:auto;padding:8px 24px">
+      <sc-if value="{{ cartEmpty }}" hint-placeholder-val="{{ true }}">
+        <p style="font-size:13px;font-style:italic;color:var(--color-neutral-600);padding:24px 0">아직 담긴 굿즈가 없습니다.</p>
+      </sc-if>
+      <sc-for list="{{ cartLines }}" as="l" hint-placeholder-count="0">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--color-divider)">
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <span style="font-size:15px">{{ l.name }}</span>
+            <span style="font-size:12px;color:var(--color-neutral-700);font-feature-settings:'tnum'">{{ l.lineText }}</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px">
+            <button class="btn btn-secondary btn-icon" onClick="{{ l.dec }}" style="width:30px;height:30px" aria-label="수량 줄이기">−</button>
+            <span style="min-width:20px;text-align:center;font-feature-settings:'tnum'">{{ l.qty }}</span>
+            <button class="btn btn-secondary btn-icon" onClick="{{ l.inc }}" style="width:30px;height:30px" aria-label="수량 늘리기">+</button>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="padding:20px 24px;border-top:1px solid var(--color-divider);display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;justify-content:space-between;font-size:15px;font-feature-settings:'tnum'"><span>합계</span><span>{{ totalText }}</span></div>
+      <button class="btn btn-primary btn-block" onClick="{{ checkout }}" style="padding:12px">{{ checkoutLabel }}</button>
+    </div>
+  </aside>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { cat: 'all', cart: {}, cartOpen: false, coffee: null, dessert: null, added: null, ordered: false };
+
+  menu = [
+    { cat: 'coffee', name: '아메리카노', en: 'Americano', price: 5000, desc: '시그니처 다크 블렌드, 묵직한 바디감' },
+    { cat: 'coffee', name: '카페 라떼', en: 'Caffè Latte', price: 5500, desc: '부드러운 우유와 고소한 에스프레소' },
+    { cat: 'coffee', name: '싱글 오리진 핸드드립', en: 'Hand Drip', price: 7000, desc: '계절마다 바뀌는 산미 있는 원두' },
+    { cat: 'signature', name: '누아르 크림라떼', en: 'Noir Cream Latte', price: 7000, desc: '진한 에스프레소 위 달콤한 크림과 카카오' },
+    { cat: 'signature', name: '솔티 카라멜 라떼', en: 'Salted Caramel', price: 6800, desc: '은은한 소금 크림과 카라멜' },
+    { cat: 'non', name: '얼그레이 밀크티', en: 'Earl Grey Milk Tea', price: 6500, desc: '직접 우린 얼그레이와 우유' },
+    { cat: 'dessert', name: '바스크 치즈케이크', en: 'Basque Cheesecake', price: 7500, desc: '겉은 그을리고 속은 촉촉한 시그니처' },
+    { cat: 'dessert', name: '다크 초콜릿 테린', en: 'Chocolate Terrine', price: 6500, desc: '카카오 함량 높은 꾸덕한 초콜릿' },
+  ];
+  signatures = [
+    { name: '누아르 크림라떼', price: 7000, img: 'assets/menu-latte.png', desc: '진한 에스프레소 위에 달콤한 크림과 카카오 파우더를 올린 아틀리에 누아르의 대표 음료.' },
+    { name: '바스크 치즈케이크', price: 7500, img: 'assets/menu-cheesecake.png', desc: '고온에서 짧게 구워 겉은 캐러멜처럼, 속은 크림처럼 부드러운 치즈케이크.' },
+    { name: '다크 초콜릿 테린', price: 6500, img: 'assets/menu-chocolate.png', desc: '깊은 카카오의 쌉쌀함을 그대로 살린, 진하고 밀도 높은 초콜릿 디저트.' },
+  ];
+  goodsList = [
+    { id: 'beans', kind: 'Coffee', name: '누아르 시그니처 원두 200g', price: 18000, desc: '매장에서 사용하는 다크 블렌드' },
+    { id: 'drip', kind: 'Coffee', name: '드립백 세트 (10입)', price: 15000, desc: '집에서 즐기는 핸드드립' },
+    { id: 'mug', kind: 'Object', name: '스톤 세라믹 머그', price: 28000, desc: '매장 테이블의 돌 질감을 담은 머그' },
+    { id: 'tumbler', kind: 'Object', name: '누아르 텀블러', price: 32000, desc: '차콜 컬러, 골드 각인 로고' },
+    { id: 'tote', kind: 'Object', name: '캔버스 토트백', price: 24000, desc: '샌드 베이지 캔버스, 수납 포켓' },
+    { id: 'card', kind: 'Paper', name: '테이스트 카드 노트', price: 6000, desc: '나만의 취향을 기록하는 노트' },
+  ];
+  coffee = [['acid', '산미 있는 커피'], ['nutty', '고소한 커피'], ['cream', '부드러운 크림'], ['sweet', '달콤한 커피']];
+  dessert = [['rich', '꾸덕한 디저트'], ['soft', '부드러운 디저트'], ['sweetD', '달콤한 디저트'], ['light', '담백한 디저트']];
+  drinkFor = { acid: '싱글 오리진 핸드드립', nutty: '카페 라떼', cream: '누아르 크림라떼', sweet: '솔티 카라멜 라떼' };
+  dessertFor = { rich: '다크 초콜릿 테린', soft: '바스크 치즈케이크', sweetD: '바스크 치즈케이크', light: '버터 휘낭시에' };
+  noteFor = { acid: '밝은 산미가 디저트의 단맛을 깨끗하게 정리해 줍니다.', nutty: '고소한 우유의 결이 디저트의 풍미를 길게 이어 줍니다.', cream: '크림의 부드러움과 디저트의 질감이 겹겹이 어우러집니다.', sweet: '단짠의 균형이 디저트에 깊이를 더합니다.' };
+
+  won(n) { return n.toLocaleString('ko-KR') + '원'; }
+  setQty(id, q) { this.setState(s => { const c = { ...s.cart }; if (q <= 0) delete c[id]; else c[id] = q; return { cart: c, ordered: false }; }); }
+
+  renderVals() {
+    const { cat, cart, coffee, dessert, added, ordered } = this.state;
+    const accent = 'var(--color-accent)';
+    const cats = [['all', '전체'], ['coffee', '커피'], ['signature', '시그니처'], ['non', '논커피'], ['dessert', '디저트']].map(([k, label]) => ({
+      label, bg: cat === k ? 'color-mix(in srgb, var(--color-accent) 14%, transparent)' : 'transparent',
+      color: cat === k ? 'var(--color-accent-800)' : 'var(--color-text)',
+      select: () => this.setState({ cat: k }),
+    }));
+    const opt = (list, cur, key) => list.map(([k, label]) => ({
+      label, mark: cur === k ? '✓' : '',
+      border: cur === k ? accent : 'var(--color-divider)',
+      bg: cur === k ? 'color-mix(in srgb, var(--color-accent) 10%, transparent)' : 'transparent',
+      pick: () => this.setState({ [key]: k }),
+    }));
+    const lines = Object.entries(cart).map(([id, qty]) => {
+      const g = this.goodsList.find(x => x.id === id);
+      return { name: g.name, qty, lineText: this.won(g.price) + ' × ' + qty, inc: () => this.setQty(id, qty + 1), dec: () => this.setQty(id, qty - 1) };
+    });
+    const total = Object.entries(cart).reduce((t, [id, q]) => t + this.goodsList.find(x => x.id === id).price * q, 0);
+    const count = Object.values(cart).reduce((a, b) => a + b, 0);
+    const has = !!(coffee && dessert);
+    return {
+      cats,
+      signatures: this.signatures.map(s => ({ ...s, priceText: this.won(s.price) })),
+      menuList: this.menu.filter(m => cat === 'all' || m.cat === cat).map(m => ({ ...m, priceText: this.won(m.price) })),
+      coffeeOpts: opt(this.coffee, coffee, 'coffee'),
+      dessertOpts: opt(this.dessert, dessert, 'dessert'),
+      hasPairing: has, noPairing: !has,
+      pairDrink: has ? this.drinkFor[coffee] : '', pairDessert: has ? this.dessertFor[dessert] : '', pairNote: has ? this.noteFor[coffee] : '',
+      goods: this.goodsList.map(g => ({
+        ...g, slot: 'goods-' + g.id, ph: g.name + ' 사진', priceText: this.won(g.price),
+        btnLabel: added === g.id ? '담았습니다' : '담기',
+        add: () => { this.setQty(g.id, (this.state.cart[g.id] || 0) + 1); this.setState({ added: g.id }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ added: null }), 1200); },
+      })),
+      cartCount: count, cartLines: lines, cartEmpty: lines.length === 0, totalText: this.won(total),
+      cartOpen: this.state.cartOpen,
+      openCart: () => this.setState({ cartOpen: true }),
+      closeCart: () => this.setState({ cartOpen: false }),
+      checkoutLabel: ordered ? '주문이 접수되었습니다' : '주문하기',
+      checkout: () => { if (count) this.setState({ ordered: true, cart: {} }); },
+    };
+  }
+}
+</script>
+</body>
+</html>
