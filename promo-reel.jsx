@@ -51,8 +51,8 @@ function HeroArch({ T, C }) {
   const kb2 = draw(T, C.Menu + 0.2, C.Taste, 1.15, 1.0);
   return <div style={{ position: 'absolute', left: cx - w / 2 - exit * 260, top: base - h, width: w, height: h, opacity: 1 - exit }}>
     <div style={{ position: 'absolute', inset: 0, borderRadius: `${Math.min(r, h)}px ${Math.min(r, h)}px 0 0`, overflow: 'hidden', border: h > 2 ? `2px solid ${GOLD}` : 'none', borderBottom: 'none' }}>
-      <img src="assets/menu-latte.png" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${kb2})` }} />
-      <img src="assets/interior.png" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: imgA, transform: `scale(${kb})` }} />
+      <img src="images/menu-latte.png" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${kb2})` }} />
+      <img src="images/interior.png" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: imgA, transform: `scale(${kb})` }} />
     </div>
     <div style={{ position: 'absolute', left: 0, right: 0, bottom: -1, height: 2, background: GOLD }} />
   </div>;
@@ -71,8 +71,8 @@ function ArchTagline({ T, C }) {
 
 const MENU = [
   { name: '누아르 크림라떼', price: '7,000', img: null, cx: 450 },
-  { name: '바스크 치즈케이크', price: '7,500', img: 'assets/menu-cheesecake.png', cx: 960 },
-  { name: '다크 초콜릿 테린', price: '6,500', img: 'assets/menu-chocolate.png', cx: 1470 },
+  { name: '바스크 치즈케이크', price: '7,500', img: 'images/menu-cheesecake.png', cx: 960 },
+  { name: '다크 초콜릿 테린', price: '6,500', img: 'images/menu-chocolate.png', cx: 1470 },
 ];
 function MenuRow({ T, C }) {
   const exit = draw(T, C.Taste - 0.3, C.Taste + 0.4, 0, 1);
